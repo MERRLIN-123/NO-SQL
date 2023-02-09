@@ -1,0 +1,71 @@
+#NOSQL ASSIGNMENT_1
+127.0.0.1:6379>SADD BK_DETAILS : NAME  Harry Potter and the Sorcerer's Stone
+127.0.0.1:6379>SADD BK_DETAILS : NAME The Catcher in the Rye
+127.0.0.1:6379>SADD BK_DETAILS : NAME The Jungle Book
+127.0.0.1:6379>SADD BK_DETAILS : NAME The Vampire Diaries (novel series)
+127.0.0.1:6379>SADD BK_DETAILS : NAME The Lord of the Rings
+127.0.0.1:6379>SADD BK_DETAILS : NAME The Color Purple
+127.0.0.1:6379>SADD BK_DETAILS : AUTHOR J.K. Rowling
+127.0.0.1:6379>SADD BK_DETAILS : AUTHOR J.D. Salinger
+127.0.0.1:6379>SADD BK_DETAILS : AUTHOR Rudyard Kipling
+127.0.0.1:6379>SADD BK_DETAILS : AUTHOR L. J. Smith
+127.0.0.1:6379>SADD BK_DETAILS : AUTHOR JRR Tolkien
+127.0.0.1:6379>SADD BK_DETAILS : AUTHOR Alice Walker
+127.0.0.1:6379>SADD BK_DETAILS : PUBLISHER Bloomsbury
+127.0.0.1:6379>SADD BK_DETAILS : PUBLISHER Little, Brown and Company
+127.0.0.1:6379>SADD BK_DETAILS : PUBLISHER Macmillan
+127.0.0.1:6379>SADD BK_DETAILS : PUBLISHER HarperCollins
+127.0.0.1:6379>SADD BK_DETAILS : PUBLISHER Allen & Unwin
+127.0.0.1:6379>SADD BK_DETAILS : PUBLISHER Harcourt Brace Jovanovich
+127.0.0.1:6379> SMEMBERS BK_DETAILS
+ 1) "Allen"
+ 2) "Jungle"
+ 3) "Purple"
+ 4) "Lord"
+ 5) "Diaries"
+ 6) "NAME"
+ 7) ":"
+ 8) "Tolkien"
+ 9) "L."
+10) "Salinger"
+11) "Book"
+12) "GATSBY"
+13) "AUTHOR"
+14) "Little,"
+15) "(novel"
+16) "J.K."
+17) "Rings"
+18) "Smith"
+19) "Vampire"
+20) "PUBLISHER"
+21) "Walker"
+22) "Rowling"
+23) "the"
+24) "The"
+25) "HarperCollins"
+26) "Bloomsbury"
+27) "series)"
+28) "in"
+29) "Brown"
+30) "Rye"
+31) "GREAR"
+32) "J.J.SALINGER"
+33) "Brace"
+34) "Kipling"
+35) "Alice"
+36) "THE"
+37) "&"
+38) "JRR"
+39) "and"
+40) "Harcourt"
+41) "J.D."
+42) "Rudyard"
+43) "Company"
+44) "Unwin"
+45) "Color"
+46) "Catcher"
+47) "J."
+48) "Macmillan"
+49) "of"
+50) "Jovanovich"
+127.0.0.1:6379>
