@@ -1,0 +1,40 @@
+HBASE DATABASE:
+        HBase is a distributed column-oriented database built on top of the Hadoop file system. It is an open-source project and is horizontally scalable.
+        HBase is a data model that is similar to Google’s big table designed to provide quick random access to huge amounts of structured data.
+        It leverages the fault tolerance provided by the Hadoop File System (HDFS).
+        It is a part of the Hadoop ecosystem that provides random real-time read/write access to data in the Hadoop File System.
+        One can store the data in HDFS either directly or through HBase. Data consumer reads/accesses the data in HDFS randomly using HBase.
+        HBase sits on top of the Hadoop File System and provides read and write access.
+HBASE SHELL:
+        HBase contains a shell using which you can communicate with HBase.
+        HBase uses the Hadoop File System to store its data.
+        It will have a master server and region servers.
+        The data storage will be in the form of regions (tables).
+        These regions will be split up and stored in region servers.
+        The master server manages these region servers and all these tasks take place on HDFS.
+DESIGNING RULES:
+      1. Design the database schema carefully to ensure efficient data retrieval and storage.
+      2. Use row keys to store the primary keys for the records.
+      3. Use composite row keys when needed for data retrieval.
+      4. Implement secondary indexes to ensure fast query performance.
+      5. Use column qualifiers to store the data associated with each field.
+      6. Store related data together in a single row or column family.
+      7. Keep the number of columns and row keys limited for efficient data storage and retrieval.
+      8. Use compression to reduce storage space and improve query performance.
+      9. Use bloom filters to reduce the number of unnecessary disk reads.
+      10. Use coprocessors to offload processing and improve query performance.
+SYNTAX:
+      Creating a Table using HBase Shell:
+             create ‘<table name>’,’<column family1>’,’<column family2>’
+      Inserting Data using HBase Shell:(PUT COMMAND)
+             put ’<table name>’,’row1’,’<colfamily:colname>’,’<value>’
+      Deleting a Specific Cell in a Table:
+             delete ‘<table name>’, ‘<row>’, ‘<column name >’ OR
+             delete ‘<table name>’, ‘<row>’, ‘<column name >’, ‘<time stamp>’
+      Updating Data using HBase Shell:
+             put ‘table name’,’row ’,'Column family:column name',’new value’
+      Searching Data using HBase Shell:
+             get ’<table name>’,’row1’
+            
+            
+            
