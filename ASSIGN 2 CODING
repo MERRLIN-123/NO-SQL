@@ -1,6 +1,71 @@
+/ # hbase shell
+2023-03-25 09:48:01,041 WARN  [main] util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+HBase Shell; enter 'help<RETURN>' for list of supported commands.
+Type "exit<RETURN>" to leave the HBase Shell
+Version 1.3.2, r1bedb5bfbb5a99067e7bc54718c3124f632b6e17, Mon Mar 19 18:47:19 UTC 2018
 
 CREATE TABLE:
+hbase(main):001:0> create 'BOOKS','BK_NAME','BK_AUTHOR','BK_PUBLISHER'
+0 row(s) in 1.4570 seconds
+hbase(main):002:0> scan  'BOOKS'
+=> Hbase::Table -  BOOKS
+
 INSERT DATA INTO THE TABLE:
-DELETE DATA FROM THE TABLE:
+hbase(main):003:0> put 'BOOKS','302','BK_NAME: Harry Potter and the Socerer's Stone','BK_AUTHOR:J.K.Rowling','BK_PUBLISHER:Bloomsbury'
+0 row(s) in 0.6240 seconds
+hbase(main):004:0> put 'BOOKS','303','BK_NAME:The Catcher in the Rye','BK_AUTHOR:J.D.Salinger','BK_PUBLISHER:Little, Brown and Company'
+0 row(s) in 0.6240 seconds
+hbase(main):005:0> put 'BOOKS','304','BK_NAME:The Jungle Book','BK_AUTHOR:Rudyard Kipling','BK_PUBLISHER:Macmillan'
+0 row(s) in 0.6240 seconds
+hbase(main):006:0> put 'BOOKS','305','BK_NAME:The Vampire Diaries(Novel Series)','BK_AUTHOR:L.J.Smith','BK_PUBLISHER:HarperCollins'
+0 row(s) in 0.6240 seconds
+hbase(main):007:0> put 'BOOKS','306','BK_NAME:The Lord of the Rings','BK_AUTHOR:JRR Tolkien','BK_PUBLISHER:Allen'
+0 row(s) in 0.6240 seconds
+hbase(main):008:0> put 'BOOKS','307','BK_NAME:The Color Purple','BK_AUTHOR:Alice Walker','BK_PUBLISHER:Harcourt Brace Jovanovich'
+0 row(s) in 0.6240 seconds
+hbase(main):009:0> put 'BOOKS','308','BK_NAME:Alice's Adventures in the Wonderland','BK_AUTHOR:Lewis Carroll','BK_PUBLISHER:Macmillan'
+0 row(s) in 0.8240 seconds
+hbase(main):010:0> scan  'BOOKS'
+ROW          COLUMN+CELL                    
+302	       column= BK_NAME; timestamp=1679110208044, value= Harry Potter and the Socerer's Stone, column= BK_ AUTHOR; value= J.K.Rowling, column= BK_ PUBLISHER; value= Bloomsbury
+303        column= BK_NAME; timestamp=16791102021044, value= The Catcher in the Rye, column= BK_ AUTHOR; value= J.D.Salinger, column= BK_ PUBLISHER; value= Little, Brown and Company
+304        column= BK_NAME; timestamp=1679110202544, value= The Jungle Book, column= BK_ AUTHOR; value= Rudyard Kipling, column= BK_ PUBLISHER; value= Macmillan
+305        column= BK_NAME; timestamp=1679110202044, value= The Vampire Diaries(Novel Series), column= BK_ AUTHOR; value= L.J.Smith, column= BK_ PUBLISHER; value= HarperCollins
+306        column= BK_NAME;  timestamp=1679110204444, value= The Lord of the Rings, column= BK_ AUTHOR; value= JRR Tolkien, column= BK_ PUBLISHER; value= Allen
+307        column= BK_NAME; timestamp=16791102014744, value= The Color Purple, column= BK_ AUTHOR; value= Alice Walker, column= BK_ PUBLISHER; value= Harcourt Brace Jovanovich
+308        column= BK_NAME;  timestamp=1679110247044, value= Alice's Adventures in the Wonderland, column= BK_ AUTHOR; value= Lewis Carroll, column= BK_ PUBLISHER; value= Macmillan
+7 row(s) in 0.1470 seconds
+
 UPDATE THE DATA TO THE TABLE:
+hbase(main):011:0> put 'BOOKS','306','BK_AUTHOR','Allen & Unwin'
+0 row(s) in 0.0060 seconds
+hbase(main):012:0> scan  'BOOKS'
+ROW          COLUMN+CELL                    
+302	       column= BK_NAME; timestamp=1679110208044, value= Harry Potter and the Socerer's Stone, column= BK_ AUTHOR; value= J.K.Rowling, column= BK_ PUBLISHER; value= Bloomsbury
+303        column= BK_NAME; timestamp=16791102021044, value= The Catcher in the Rye, column= BK_ AUTHOR; value= J.D.Salinger, column= BK_ PUBLISHER; value= Little, Brown and Company
+304        column= BK_NAME; timestamp=1679110202544, value= The Jungle Book, column= BK_ AUTHOR; value= Rudyard Kipling, column= BK_ PUBLISHER; value= Macmillan
+305        column= BK_NAME; timestamp=1679110202044, value= The Vampire Diaries(Novel Series), column= BK_ AUTHOR; value= L.J.Smith, column= BK_ PUBLISHER; value= HarperCollins
+306        column= BK_NAME;  timestamp=1679110204444, value= The Lord of the Rings, column= BK_ AUTHOR; value= JRR Tolkien, column= BK_ PUBLISHER; value= Allen & Unwin
+307        column= BK_NAME; timestamp=16791102014744, value= The Color Purple, column= BK_ AUTHOR; value= Alice Walker, column= BK_ PUBLISHER; value= Harcourt Brace Jovanovich
+308        column= BK_NAME;  timestamp=1679110247044, value= Alice's Adventures in the Wonderland, column= BK_ AUTHOR; value= Lewis Carroll, column= BK_ PUBLISHER; value= Macmillan
+7 row(s) in 0.1470 seconds
+
 SEARCH A DATA IN THE TABLE:
+hbase(main):013:0> get 'BOOKS','305'
+COLUMN                                    CELL                                                                                                                  
+BK_NAME:		    timestamp=1679110202044, value= The Vampire Diaries(Novel Series)
+1 row(s) in 0.0290 seconds
+
+DELETE DATA FROM THE TABLE:
+hbase(main):014:0> delete 'BOOKS','303'
+0 row(s) in 0.0060 seconds
+hbase(main):015:0> scan  'BOOKS'
+ROW          COLUMN+CELL  
+302	       column= BK_NAME; timestamp=1679110208044, value= Harry Potter and the Socerer's Stone, column= BK_ AUTHOR; value= J.K.Rowling, column= BK_ PUBLISHER; value= Bloomsbury
+304        column= BK_NAME; timestamp=1679110202544, value= The Jungle Book, column= BK_ AUTHOR; value= Rudyard Kipling, column= BK_ PUBLISHER; value= Macmillan
+305        column= BK_NAME; timestamp=1679110202044, value= The Vampire Diaries(Novel Series), column= BK_ AUTHOR; value= L.J.Smith, column= BK_ PUBLISHER; value= HarperCollins
+306        column= BK_NAME;  timestamp=1679110204444, value= The Lord of the Rings, column= BK_ AUTHOR; value= JRR Tolkien, column= BK_ PUBLISHER; value= Allen & Unwin
+307        column= BK_NAME; timestamp=16791102014744, value= The Color Purple, column= BK_ AUTHOR; value= Alice Walker, column= BK_ PUBLISHER; value= Harcourt Brace Jovanovich
+308        column= BK_NAME;  timestamp=1679110247044, value= Alice's Adventures in the Wonderland, column= BK_ AUTHOR; value= Lewis Carroll, column= BK_ PUBLISHER; value= Macmillan
+6 row(s) in 0.1570 seconds
+
