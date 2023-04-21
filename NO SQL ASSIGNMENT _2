@@ -21,6 +21,20 @@ HBASE SHELL:
         The data storage will be in the form of regions (tables).
         These regions will be split up and stored in region servers.
         The master server manages these region servers and all these tasks take place on HDFS.
+        
+        https://mail.google.com/mail/u/0?ui=2&ik=1b5c16ca35&attid=0.1&permmsgid=msg-a:r1345316389710968929&th=187a46ef97462faf&view=att&disp=safe&realattid=f_lgqpj1010
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 DESIGNING RULES:
       1. Design the database schema carefully to ensure efficient data retrieval and storage.
       2. Use row keys to store the primary keys for the records.
